@@ -37,12 +37,20 @@ export class AuthAppStack extends cdk.Stack {
     });
 
     this.auth = authApi.root.addResource("auth");
-    
+
     this.addAuthRoute(
       "signup",
       "POST",
       "SignupFn",
       'signup.ts'
+    );
+
+    // NEW
+    this.addAuthRoute(
+      "confirm_signup",
+      "POST",
+      "ConfirmFn",
+      "confirm-signup.ts"
     );
   }
 
